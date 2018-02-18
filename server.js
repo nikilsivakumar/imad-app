@@ -21,7 +21,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/one', function(req,res){
-    res.send('Article one requested');   
+    res.sendFile(path.join(__dirname, 'ui', 'one.html'));   
 });
 
 
