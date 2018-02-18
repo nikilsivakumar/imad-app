@@ -15,13 +15,79 @@ app.use(morgan('combined'));
 // These handle specific urls
 // get request to the url and the following function is executed
 
+// for content of the html pages , since no db
+
+var articleOne = {
+    title: "Article one | Nikil Sivakumar",
+    heading: "Article One",
+    date: "18 Feb 2018",
+    content : `                <p>
+                    This is the first article
+                    This is the first article
+                    This is the first article
+                </p>
+                
+                <p>
+                    This is the first article
+                    This is the first article
+                    This is the first article
+                </p>
+                
+                <p>
+                    This is the first article
+                    This is the first article
+                    This is the first article
+                </p>`
+}
+
+fuction createTemplate(data){
+    var title = data.title;
+    var date = data.date;
+    var heading = data.heading;
+    vav content = data.content;
+    
+    
+    var htmlTemplate = `<html>
+        <head>
+            <title>
+                ${title}
+            </title>
+            <meta name="Viewport" content="width=device-width, initial-scale=1" />
+            <link href="/ui/style.css" rel="stylesheet" />
+        </head>
+        
+        <body>
+            <div class="container">
+                <div>
+                    <a href="/">Home</a>
+                </div>
+                <hr>
+                
+                <h3>
+                    ${heading}
+                </h3>
+                
+                <div>
+                    ${date}
+                </div>
+                
+                <div>
+                    ${content}
+                </div>
+            </div>
+        </body>
+    </html>
+    `
+    return htmlTemplate
+}
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
   // pickup and send ui/index.htnl file
 });
 
 app.get('/one', function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'one.html'));   
+    res.send(createTemplate(aricleOne));
 });
 
 
