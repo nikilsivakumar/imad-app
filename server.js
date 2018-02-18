@@ -26,12 +26,12 @@ app.get('/one', function(req,res){
 
 
 app.get('/two', function(req,res){
-    res.send('Article two requested');   
+    res.sendFile(path.join(__dirname, 'ui', 'two.html'));
 });
 
 
 app.get('/three', function(req,res){
-    res.send('Article three requested');   
+    res.sendFile(path.join(__dirname, 'ui', 'three.html'));
 });
 
 
