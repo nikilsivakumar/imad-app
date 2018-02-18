@@ -1,12 +1,21 @@
+// add three urls and server em
+// This is the source code of the server
+
+// this is for creating the web server, handling http
 var express = require('express');
+// to output logs of server
 var morgan = require('morgan');
 var path = require('path');
 
 var app = express();
 app.use(morgan('combined'));
 
+// These handle specific urls
+// get request to the url and the following function is executed
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+  // pickup and send ui/index.htnl file
 });
 
 app.get('/ui/style.css', function (req, res) {
