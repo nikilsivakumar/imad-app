@@ -3,7 +3,9 @@
 
 // this is for creating the web server, handling http
 var express = require('express');
+
 // to output logs of server
+
 var morgan = require('morgan');
 var path = require('path');
 
