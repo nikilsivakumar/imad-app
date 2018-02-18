@@ -20,6 +20,21 @@ app.get('/', function (req, res) {
   // pickup and send ui/index.htnl file
 });
 
+app.get('/one', function(req,res){
+    res.send('Article one requested');   
+});
+
+
+app.get('/two', function(req,res){
+    res.send('Article two requested');   
+});
+
+
+app.get('/three', function(req,res){
+    res.send('Article three requested');   
+});
+
+
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
