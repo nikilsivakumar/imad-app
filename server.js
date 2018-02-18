@@ -38,7 +38,7 @@ var articleOne = {
                     This is the first article
                     This is the first article
                 </p>`
-}
+};
 
 function createTemplate (data) {
     var title = data.title;
