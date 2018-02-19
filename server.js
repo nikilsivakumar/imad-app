@@ -17,27 +17,50 @@ app.use(morgan('combined'));
 
 // for content of the html pages , since no db
 
-var articleOne = {
-    title: "Article one | Nikil Sivakumar",
-    heading: "Article One",
-    date: "18 Feb 2018",
-    content : `                <p>
-                    This is the first article
-                    This is the first article
-                    This is the first article
-                </p>
-                
-                <p>
-                    This is the first article
-                    This is the first article
-                    This is the first article
-                </p>
-                
-                <p>
-                    This is the first article
-                    This is the first article
-                    This is the first article
-                </p>`
+var articles = {
+    'one' : {
+        title: "Article one | Nikil Sivakumar",
+        heading: "Article One",
+        date: "18 Feb 2018",
+        content : `                <p>
+                        This is the first article
+                        This is the first article
+                        This is the first article
+                    </p>
+                    
+                    <p>
+                        This is the first article
+                        This is the first article
+                        This is the first article
+                    </p>
+                    
+                    <p>
+                        This is the first article
+                        This is the first article
+                        This is the first article
+                    </p>`
+    },
+    
+    'two' : {
+        title: "Article Two | Nikil Sivakumar",
+        heading: "Article Two",
+        date: "19 Feb 2018",
+        content : ` <p>
+                        This is the Second article
+                    </p>
+                    `
+    },
+    
+    
+    'three' : {
+        title: "Article Three | Nikil Sivakumar",
+        heading: "Article Three",
+        date: "20 Feb 2018",
+        content : ` <p>
+                        This is the Third article
+                    </p>
+                    `
+    },
 };
 
 function createTemplate (data) {
@@ -86,19 +109,12 @@ app.get('/', function (req, res) {
   // pickup and send ui/index.htnl file
 });
 
-app.get('/one', function(req,res){
-    res.send(createTemplate(articleOne));
+//articleName is the article one
+app.get('/:articleName', function(req,res){
+    var articleName = req.params.articleName;
+    res.send(createTemplate(articles[articleName]));
 });
 
-
-app.get('/two', function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'two.html'));
-});
-
-
-app.get('/three', function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'three.html'));
-});
 
 
 app.get('/ui/style.css', function (req, res) {
